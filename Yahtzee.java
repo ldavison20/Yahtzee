@@ -12,6 +12,7 @@ public class Yahtzee
 			dice[i] = new Die();
 		}
 		count = new int[6];
+		rollAllDice();
 		updateCount();
 		
 	}
@@ -88,12 +89,13 @@ public class Yahtzee
 	private int countUp(int value)
 	{
 		int n = 0;
-		for(int i = 0; i <= dice.length; i++)
+		for(int i = 0; i < 5; i++)
 		{
-			if(value == i)
+			if(dice[i].getValue() == value)
 			{
 				n++;
 			}
+			else;
 		}
 		return n;
 	}
@@ -104,7 +106,36 @@ public class Yahtzee
 			count[i] = countUp(i + 1);
 		}
 	}
-
+	public int getScoreOnes() 
+	{
+		int ones = count[0]*1;
+		return ones;
+	}
+	public int getScoreTwos()
+	{
+		int twos = count[1]*2;
+		return twos;
+	}
+	public int getScoreThrees() 
+	{
+		int threes = count[2]*3;
+		return threes;
+	}
+	public int getScoreFours() 
+	{
+		int fours = count[3]*4;
+		return fours;
+	}
+	public int getScoreFives() 
+	{
+		int fives = count[4]*5;
+		return fives;
+	}
+	public int getScoreSixes() 
+	{
+		int six = count[5]*6;
+		return six;
+	}
 
 	
 }
